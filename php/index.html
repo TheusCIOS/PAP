@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Reuniões</title>
+    <style>
+        section {
+            display: none; /* Seções começam ocultas */
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        main {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bem-vindo à Agenda de Reuniões</h1>
+        <button onclick="showSection('login-section')">Fazer Login</button>
+        <button onclick="showSection('cadastro-section')">Cadastrar</button>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <h2>Faça Login</h2>
+            <form action="login.php" method="POST">
+                <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                <input type="password" name="senha" placeholder="Digite sua senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+
+        <section class="cadastro-section">
+            <h2>Cadastro</h2>
+            <form action="cadastrar_usuario.php" method="POST">
+                <input type="text" name="nome" placeholder="Digite seu nome" required>
+                <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                <input type="password" name="senha" placeholder="Digite sua senha" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Função para alternar entre as seções
+        function showSection(section) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+
+            const targetSection = document.querySelector('.' + section);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+        }
+
+        window.onload = function() {
+            // Nenhuma seção será exibida ao carregar
+        };
+    </script>
+</body>
+</html>

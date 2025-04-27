@@ -1,0 +1,669 @@
+<?php
+session_start(); // isso já deve estar aí
+
+// DESCOMENTE as linhas abaixo temporariamente para testar
+// session_unset();
+// session_destroy();
+// session_start();
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Reunião</title>
+    <link rel="stylesheet" href="estilos.css">
+  
+    
+<script>
+    // Função para abrir o modal
+    function openModal() {
+        document.getElementById("loginModal").style.display = "block";
+    }
+
+    // Função para fechar o modal
+    function closeModal() {
+        document.getElementById("loginModal").style.display = "none";
+    }
+
+    // Função para mostrar o formulário de login
+    function showLoginForm() {
+        document.getElementById("loginSection").style.display = "block";
+        document.getElementById("cadastroSection").style.display = "none";
+    }
+
+    // Função para mostrar o formulário de cadastro
+    function showCadastroForm() {
+        document.getElementById("cadastroSection").style.display = "block";
+        document.getElementById("loginSection").style.display = "none";
+    }
+
+    // Fechar o modal se o usuário clicar fora da área do modal
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("loginModal")) {
+            closeModal();
+        }
+    }
+</script>
+
+    <script>
+        // Função para alternar entre o login e o cadastro
+        function toggleForms() {
+            const loginSection = document.getElementById("login-section");
+            const cadastroSection = document.getElementById("cadastro-section");
+            const toggleButton = document.getElementById("toggleButton");
+
+            // Alterna a visibilidade das seções
+            if (loginSection.style.display === "none") {
+                loginSection.style.display = "block";
+                cadastroSection.style.display = "none";
+                toggleButton.textContent = "Ir para Cadastro"; // Alterando o texto do botão
+            } else {
+                loginSection.style.display = "none";
+                cadastroSection.style.display = "block";
+                toggleButton.textContent = "Ir para Login"; // Alterando o texto do botão
+            }
+        }
+
+        // Inicialização: o formulário de login está visível por padrão
+       
+    </script>
+
+</body>
+</html>
+
+
+</body>
+</html>
+
+
+    <script>
+        // Função para alternar entre seções
+        function showSection(section) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(function(sec) {
+                sec.style.display = 'none'; // Esconde todas as seções
+            });
+            const sectionToShow = document.querySelector('.' + section);
+            if (sectionToShow) {
+                sectionToShow.style.display = 'block'; // Mostra a seção clicada
+            }
+    
+            // Esconde a imagem e o texto de boas-vindas quando uma seção é mostrada
+            const imagem1 = document.getElementById("imagem1");
+            if (imagem1) {
+                imagem1.style.display = 'none'; // Esconde a imagem
+            }
+    
+            const centralizado = document.querySelector('.centralizado');
+            if (centralizado) {
+                centralizado.style.display = 'none'; // Esconde o texto de boas-vindas
+            }
+        }
+    
+        function toggleAccountInfo() {
+    var userInfo = document.getElementById("userInfo");
+
+    // Alterna a visibilidade da área do usuário
+    if (userInfo.style.display === "none" || userInfo.style.display === "") {
+        userInfo.style.display = "block";
+    } else {
+        userInfo.style.display = "none";
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const perguntas = document.querySelectorAll(".faq-question");
+
+    perguntas.forEach(pergunta => {
+        pergunta.addEventListener("click", function () {
+            const resposta = this.nextElementSibling;
+            const icone = this.querySelector("i");
+
+            if (resposta.style.display === "block") {
+                resposta.style.display = "none";
+                icone.classList.remove("fa-chevron-up");
+                icone.classList.add("fa-chevron-down");
+            } else {
+                resposta.style.display = "block";
+                icone.classList.remove("fa-chevron-down");
+                icone.classList.add("fa-chevron-up");
+            }
+        });
+    });
+});
+
+        // Função para alternar a seleção dos dias
+        function selecionarDia(event) {
+            const diaButton = event.target;
+            const circle = diaButton.querySelector('.circle');
+    
+            if (diaButton.classList.contains('selecionado')) {
+                diaButton.classList.remove('selecionado');
+                circle.style.backgroundColor = 'transparent'; // Retorna a cor do círculo para transparente
+            } else {
+                diaButton.classList.add('selecionado');
+                circle.style.backgroundColor = '#000'; // Define a cor preta para o círculo
+            }
+    
+            // Atualiza o campo oculto com os dias selecionados
+            const diasSelecionados = [];
+            const dias = document.querySelectorAll('.dia.selecionado');
+            dias.forEach(dia => {
+                diasSelecionados.push(dia.getAttribute('data-dia'));
+            });
+            document.getElementById('disponibilidade_dia').value = diasSelecionados.join(',');
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            const submitProblemReportButton = document.getElementById('submitProblemReport');
+            const problemReportForm = document.querySelector('.faq-report-section form');
+    
+            // Verifica se o botão e o formulário existem
+            if (problemReportForm) {
+                problemReportForm.addEventListener('submit', function(event) {
+                    event.preventDefault();  // Previne o comportamento padrão de envio do formulário
+    
+                    const problemDescription = document.getElementById('problemDescription').value;
+    
+                    if (problemDescription.trim() === "") {
+                        alert("Por favor, descreva o problema antes de enviar.");
+                        return;
+                    }
+    
+                    alert("Problema reportado: " + problemDescription);
+    
+                    // Limpa a caixa de texto após o envio
+                    document.getElementById('problemDescription').value = "";
+                });
+            } else {
+                console.log('Formulário de reportar problema não encontrado!');
+            }
+        });
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="principal">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Login Modal</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    
+        .modal {
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    
+        .close:hover {
+            color: black;
+            cursor: pointer;
+        }
+    
+        .login-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+    
+        .form-container {
+            margin-top: 20px;
+        }
+    </style>
+    
+    <body class="principal">
+    
+        <img src="foto1.png" alt="Imagem 1" id="imagem1">
+    
+        <header>
+            <div class="header-container">
+                <a href="http://localhost/artmetal/php/principal.html">
+                    <img src="logoartmetal.png" alt="Logo Art Metal" class="logo-left">
+                </a>
+    
+                <div class="nav-buttons">
+                    <button onclick="showSection('agendar-reuniao')">Agendar Reunião</button>
+                    <button onclick="showSection('ver-projetos')">Ver Projetos</button>
+                    <button onclick="showSection('candidatar-soldadura')">Candidatar para Soldadura</button>
+                </div>
+               <!-- Aqui está o código da interface de login/logout -->
+<div class="user-actions">
+    <button onclick="showSection('faq-section')" class="faq-button">FAQ</button>
+
+    <div class="user-dropdown">
+        <img src="usuario.png" alt="Foto do Usuário" onclick="toggleAccountInfo()" style="cursor:pointer;">
+        
+        <div id="userInfo" class="user-info" style="display: none;">
+            <p id="userEmail"></p>
+            <a href="logout.php">Logout</a>
+        </div>
+        
+        <p id="noUserMessage" style="display: none;">Nenhum usuário conectado.</p>
+    </div>
+    
+</div>
+
+                    
+                    
+                
+                    <?php else: ?>
+                        <button onclick="toggleLoginModal()" class="login-button">Login</button>
+                        <!-- Modal de Login -->
+                        <div id="loginModal" class="modal hidden">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeLoginModal()">&times;</span>
+    
+                                <!-- Formulário de Login -->
+                                <div id="loginForm" class="form-container">
+                                    <h2>Login</h2>
+                                    <form action="login.php" method="POST">
+                                        <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                                        <input type="password" name="senha" placeholder="Digite sua senha" required>
+                                        <button type="submit">Entrar</button>
+                                    </form>
+                                    <p>Não tem uma conta? <a href="javascript:void(0);" onclick="showRegisterForm()">Cadastre-se</a></p>
+                                </div>
+    
+                                <!-- Formulário de Cadastro -->
+                                <div id="registerForm" class="form-container hidden">
+                                    <h2>Cadastro</h2>
+                                    <form action="cadastrar_usuario.php" method="POST">
+                                        <input type="text" name="nome" placeholder="Digite seu nome" required>
+                                        <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                                        <input type="password" name="senha" placeholder="Digite sua senha" required>
+                                        <button type="submit">Cadastrar</button>
+                                    </form>
+                                    <p>Já tem uma conta? <a href="javascript:void(0);" onclick="showLoginForm()">Faça Login</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </header>
+        <script>
+function toggleAccountInfo() {
+    // Verifique se o elemento userInfo e noUserMessage existem
+    const userInfo = document.getElementById("userInfo");
+    const noUserMessage = document.getElementById("noUserMessage");
+
+    if (!userInfo || !noUserMessage) {
+        console.error("Elementos 'userInfo' ou 'noUserMessage' não encontrados");
+        return; // Se os elementos não existirem, a função não faz nada
+    }
+
+    fetch('verificar_login.php')  // Certifique-se que o caminho está correto
+        .then(response => response.text())  // Trata a resposta como texto
+        .then(data => {
+            console.log("Resposta do servidor: " + data); // Loga a resposta para depuração
+
+            if (data === 'true') {
+                // Se o usuário estiver logado
+                // Aqui você pode colocar o email do usuário se necessário
+                document.getElementById("userEmail").innerText = "Você está logado!"; // Ou exibir o email do usuário
+
+                // Exibe as opções de logout
+                userInfo.style.display = "block";  // Exibe a div com as opções do usuário logado
+                noUserMessage.style.display = "none"; // Esconde a mensagem "Nenhum usuário conectado"
+            } else {
+                // Se o usuário não estiver logado
+                userInfo.style.display = "none"; // Esconde as opções de login/logout
+                noUserMessage.style.display = "block"; // Exibe a mensagem "Nenhum usuário conectado"
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao verificar a sessão:', error);
+        });
+}
+
+
+
+
+
+
+
+        
+            // Função para abrir o modal de login
+            function toggleLoginModal() {
+                document.getElementById("loginModal").classList.remove("hidden");
+                showLoginForm(); // Exibe o formulário de login por padrão
+            }
+    
+            // Função para fechar o modal
+            function closeLoginModal() {
+                document.getElementById("loginModal").classList.add("hidden");
+            }
+    
+            // Função para mostrar o formulário de login
+            function showLoginForm() {
+                document.getElementById("registerForm").classList.add("hidden");
+                document.getElementById("loginForm").classList.remove("hidden");
+            }
+    
+            // Função para mostrar o formulário de cadastro
+            function showRegisterForm() {
+                document.getElementById("loginForm").classList.add("hidden");
+                document.getElementById("registerForm").classList.remove("hidden");
+            }
+    
+            // Fechar o modal quando clicar fora dele
+            window.onclick = function(event) {
+                var modal = document.getElementById("loginModal");
+                if (event.target === modal) {
+                    closeLoginModal();
+                }
+            }
+        </script>
+    
+    </body>
+    
+    
+    <!-- Seção FAQ -->
+<!-- Seção FAQ -->
+<div class="faq-section">
+    <h2>Perguntas Frequentes</h2>
+    <div class="faq-item">
+        <button class="faq-question">Como agendar uma reunião? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">Clique no botão "Agendar Reunião", selecione a data e hora e confirme.</div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question">Quais serviços vocês oferecem? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">Trabalhamos com soluções metálicas, incluindo soldagem e fabricação de estruturas.</div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question">Onde vocês estão localizados? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">Estamos localizados na Estrada Nacional 1, nº 426, Águeda, Aveiro, Portugal.</div>
+    </div>
+    <!-- Mais perguntas -->
+    <div class="faq-item">
+        <button class="faq-question">Como faço para entrar em contato com o suporte? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">Você pode entrar em contato através do nosso formulário de suporte ou por email.</div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question">Posso alterar minha reunião após agendar? <i class="fas fa-chevron-down"></i></button>
+        <div class="faq-answer">Sim, você pode alterar sua reunião com no mínimo 24 horas de antecedência.</div>
+    </div>
+
+    <!-- Formulário de Reportar Problema -->
+    <!-- Formulário de Reportar Problema -->
+<!-- Formulário de Reportar Problema -->
+<!-- Formulário de Reportar Problema -->
+<div class="faq-report-section">
+    <h3>Reportar um Problema</h3>
+    <form method="POST" action="reportar_problema.php">
+        <!-- Campo de Nome -->
+        <label for="nome">Seu nome</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <!-- Campo de Descrição -->
+        <label for="problemDescription">Descreva o problema</label>
+        <textarea name="descricao" id="problemDescription" placeholder="Descreva o problema que você encontrou..." required></textarea>
+
+        <button type="submit" id="submitProblemReport">Enviar Problema</button>
+    </form>
+</div>
+
+
+</div>
+
+
+
+    
+    <main>
+        <!-- Seção para a página principal, com o texto centralizado -->
+        <div class="centralizado">
+            <h1>Bem-vindo à <br>Evolution Art Metal</h1>
+            <p>Aqui, qualidade e inovação se encontram para criar soluções metálicas de excelência.</p>
+        </div>
+
+        <!-- Seção para Agendar Reunião -->
+      <!-- Seção para Agendar Reunião -->
+      <section class="agendar-reuniao" style="display: none;">
+        <h2>Agendar Reunião</h2>
+        <form class="form-agendar" action="agendar_reuniao.php" method="POST" onsubmit="verificarLoginAntesDeSubmeter(event)">
+            <label for="data_reuniao">Data da Reunião:</label>
+            <input type="date" id="data_reuniao" name="data_reuniao" required><br>
+    
+            <label for="hora_reuniao">Hora da Reunião:</label>
+            <select id="hora_reuniao" name="hora_reuniao" required>
+                <option value="">-- Selecione um horário --</option>
+                <option value="08:00">08:00</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <!-- outros horários -->
+            </select><br>
+    
+            <label for="motivo_reuniao">Motivo da Reunião:</label>
+            <select id="motivo_reuniao" name="motivo_reuniao" required>
+                <option value="Consultoria">Consultoria</option>
+                <option value="Treinamento">Treinamento</option>
+                <option value="Suporte Técnico">Suporte Técnico</option>
+                <option value="Negócios">Negócios</option>
+                <option value="Outros">Outros</option>
+            </select><br>
+    
+            <label for="motivo_outro" id="motivo_outro_label" style="display: none;">Especifique o motivo:</label>
+            <textarea id="motivo_outro" name="motivo_outro" rows="4" style="display: none;"></textarea><br>
+    
+            <button type="submit">Agendar Reunião</button>
+        </form>
+    </section>
+    
+
+<script>
+    // JavaScript para exibir o campo de motivo adicional se "Outros" for selecionado
+    document.getElementById('motivo_reuniao').addEventListener('change', function() {
+        var motivoSelecionado = this.value;
+        if (motivoSelecionado === 'Outros') {
+            document.getElementById('motivo_outro_label').style.display = 'block';
+            document.getElementById('motivo_outro').style.display = 'block';
+        } else {
+            document.getElementById('motivo_outro_label').style.display = 'none';
+            document.getElementById('motivo_outro').style.display = 'none';
+        }
+    });
+</script>
+
+
+<!-- Seção para Ver Projetos - Primeira Seção de Vídeos -->
+<section class="ver-projetos" style="display: none;">
+    <h2>Ver Projetos</h2>
+    <div class="video-container">
+        <!-- Vídeo 1 -->
+        <div class="video-item">
+            <h3>Título do Vídeo 1</h3>
+            <p>Descrição do vídeo 1. Aqui você pode adicionar detalhes sobre o conteúdo do vídeo.</p>
+            <video width="640" height="360" controls>
+                <source src="http://localhost/artmetal/php/Video1.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+
+        <!-- Vídeo 2 -->
+        <div class="video-item">
+            <h3>Título do Vídeo 2</h3>
+            <p>Descrição do vídeo 2. Aqui você pode adicionar detalhes sobre o conteúdo do vídeo.</p>
+            <video width="640" height="360" controls>
+                <source src="http://localhost/artmetal/php/Video2.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+
+        <!-- Vídeo 3 -->
+        <div class="video-item">
+            <h3>Título do Vídeo 3</h3>
+            <p>Descrição do vídeo 3. Aqui você pode adicionar detalhes sobre o conteúdo do vídeo.</p>
+            <video width="640" height="360" controls>
+                <source src="http://localhost/artmetal/php/Video3.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+    </div>
+</section>
+
+<!-- Seção para Candidatar para Soldadura -->
+<section class="candidatar-soldadura" style="display: none;">
+    <h2>Candidatar para Soldadura</h2>
+    <form class="form-candidatar" method="POST" action="candidatar_soldadura.php" enctype="multipart/form-data">
+        <label for="nome_soldador">Nome do Candidato:</label>
+        <input type="text" name="nome_soldador" id="nome_soldador" required>
+    
+        <label for="experiencia_soldador">Experiência em Soldadura:</label>
+        <textarea name="experiencia_soldador" id="experiencia_soldador" rows="4" required></textarea>
+    
+        <label for="curriculo">Currículo (PDF ou DOCX) - Opcional:</label>
+        <input type="file" name="curriculo" id="curriculo" accept=".pdf, .docx">
+    
+        <label for="disponibilidade">Disponibilidade (clique nos dias que você está disponível):</label>
+        <div id="diasDisponiveis">
+            <button type="button" class="dia" data-dia="segunda" onclick="selecionarDia(event)">
+                <div class="circle"></div>
+                <span>Segunda-feira</span>
+            </button>
+            <button type="button" class="dia" data-dia="terca" onclick="selecionarDia(event)">
+                <div class="circle"></div>
+                <span>Terça-feira</span>
+            </button>
+            <button type="button" class="dia" data-dia="quarta" onclick="selecionarDia(event)">
+                <div class="circle"></div>
+                <span>Quarta-feira</span>
+            </button>
+            <button type="button" class="dia" data-dia="quinta" onclick="selecionarDia(event)">
+                <div class="circle"></div>
+                <span>Quinta-feira</span>
+            </button>
+            <button type="button" class="dia" data-dia="sexta" onclick="selecionarDia(event)">
+                <div class="circle"></div>
+                <span>Sexta-feira</span>
+            </button>
+            <button type="button" class="dia" data-dia="sabado" onclick="selecionarDia(event)">
+                <div class="circle"></div>
+                <span>Sábado</span>
+            </button>
+            <button type="button" class="dia" data-dia="domingo" onclick="selecionarDia(event)">
+                <div class="circle"></div>
+                <span>Domingo</span>
+            </button>
+        </div>
+        
+        <input type="hidden" name="disponibilidade_dia" id="disponibilidade_dia">
+        
+        <button type="submit">Enviar Candidatura</button>
+        </form>
+        
+        <script>
+            // Função para selecionar/deselecionar os dias e preencher/despreencher a bolinha
+            function selecionarDia(event) {
+                const dia = event.target.getAttribute('data-dia');
+                const diasSelecionados = document.getElementById('disponibilidade_dia').value.split(',');
+                const circleElement = event.target.querySelector('.circle');  // Seleciona a bolinha dentro do botão
+                const buttonElement = event.target; // Seleciona o botão inteiro (incluindo a bolinha e o texto)
+        
+                // Verifica se o dia já está selecionado
+                if (diasSelecionados.includes(dia)) {
+                    // Se o dia já estiver selecionado, desmarque-o e retire o preenchimento da bolinha e da linha inteira
+                    const index = diasSelecionados.indexOf(dia);
+                    diasSelecionados.splice(index, 1);
+                    circleElement.style.backgroundColor = '';  // Remove o preenchimento da bolinha
+                    buttonElement.style.backgroundColor = ''; // Remove a cor de fundo do botão inteiro
+                } else {
+                    // Se o dia não estiver selecionado, marque-o e preencha a bolinha e a linha inteira
+                    diasSelecionados.push(dia);
+                    circleElement.style.backgroundColor = '#454545';  // Preenche a bolinha (cinza, por exemplo)
+                    buttonElement.style.backgroundColor = '#f0f0f0'; // Cor do botão inteiro (exemplo: cinza claro)
+                }
+        
+                // Atualiza o campo oculto com os dias selecionados
+                document.getElementById('disponibilidade_dia').value = diasSelecionados.join(',');
+            }
+        
+        // Função para verificar o login antes de submeter o formulário
+        function verificarLoginAntesDeSubmeter(event) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'verificar_login.php', true);  // Faz uma requisição para o arquivo PHP que verifica o login
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    var isLoggedIn = xhr.responseText.trim() === 'true';  // Se a resposta for 'true', o usuário está logado
+                    if (!isLoggedIn) {
+                        // Se o usuário não estiver logado, mostra um alerta e impede o envio do formulário
+                        alert("Você precisa estar logado para realizar esta ação.");
+                        window.location.href = "principal.html";  // Redireciona para a página de login
+                        event.preventDefault();  // Impede o envio do formulário
+                    }
+                }
+            };
+            xhr.send();  // Envia a requisição para o servidor
+        }
+    
+        // Adiciona o evento de verificação ao formulário de candidatura
+        document.querySelector('.form-candidatar').addEventListener('submit', verificarLoginAntesDeSubmeter);
+    </script>
+    
+   
+ <!-- Exemplo de como colocar no cabeçalho (header) para todas as páginas -->
+</main>
+
+<div class="card">
+    <a href="https://www.instagram.com/evolutionartmetal/" target="_blank" class="socialContainer containerOne">
+        <i class="fab fa-instagram" style="font-size: 24px; color: #fff;"></i>
+    </a>
+    <a href="https://wa.me/351912203254?text=Olá, gostaria de mais informações sobre a ArtMetal." target="_blank" class="socialContainer containerFour">
+        <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+    </a>
+    <a href="https://www.google.com/maps?q=Estrada+Nacional+1,+n%C2%BA+426,+%C3%81gueda,+Aveiro,+Portugal" target="_blank" class="socialContainer containerFive">
+        <i class="fas fa-map-marker-alt" style="font-size: 24px; color: #fff;"></i>
+    </a>
+</div>
+    </body>
+    </html>
+    

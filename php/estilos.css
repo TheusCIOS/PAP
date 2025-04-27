@@ -1,0 +1,587 @@
+/* Faixa superior */
+header {
+    position: relative;
+    z-index: 1000; /* Garante que a faixa superior fique acima da imagem e da faixa inferior */
+    background-color: #fff; /* Cor de fundo da faixa superior */
+    padding: 10px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+main {
+    margin-top: -20px; /* Movendo as seções principais para cima */
+}
+/* Container das ações do usuário */
+.user-actions {
+    position: absolute;
+    right: 30px;  /* Alinha à direita com 20px de distância da borda direita */
+    top: 20px;    /* Distância da parte superior */
+    display: flex; 
+    flex-direction: column; /* Alinha o conteúdo em coluna */
+    align-items: flex-end; /* Alinha todos os itens à direita */
+}
+
+/* Ícone do usuário */
+.user-actions img {
+    width: 40px;  /* Tamanho reduzido do ícone */
+    height: 40px; /* Tamanho reduzido do ícone */
+    border-radius: 50%; /* Mantém a imagem arredondada */
+    margin-bottom: 5px; /* Distância entre o ícone e o conteúdo abaixo */
+    cursor: pointer; /* Indica que o ícone é clicável */
+}
+
+/* Informações do usuário (nome e email) */
+.user-info {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;  /* Menos espaço interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 70px;  /* Largura reduzida */
+    display: none;  /* Inicialmente escondido */
+    text-align: center;
+    font-size: 12px; /* Texto pequeno */
+    height: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Alinha tudo no centro verticalmente */
+}
+
+.user-info a {
+    font-size: 20px;  /* Tamanho do texto do link reduzido */
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.user-info a:hover {
+    color: #0056b3;
+}
+
+/* Estilo para a área de candidatura à soldadura */
+.candidatar-soldadura {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 10;
+    margin-top: 120px;
+}
+
+/* Título da seção */
+.candidatar-soldadura h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo para o formulário */
+.candidatar-soldadura form {
+    font-size: 16px;
+    color: #333;
+}
+
+.candidatar-soldadura label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilo para os campos de texto */
+.candidatar-soldadura input[type="text"],
+.candidatar-soldadura textarea,
+.candidatar-soldadura input[type="file"],
+.candidatar-soldadura input[type="hidden"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Estilo para o campo de textarea (experiência) */
+.candidatar-soldadura textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Estilo para os botões de dias da semana */
+.candidatar-soldadura .dia {
+    background-color: #f0f0f0; /* Cor de fundo normal */
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Adiciona transição suave */
+}
+
+.candidatar-soldadura .dia .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* Hover para os botões de dias */
+.candidatar-soldadura .dia:hover {
+    background-color: #373837;
+}
+
+/* Estilo para os botões de dias selecionados */
+.candidatar-soldadura .dia.selecionado {
+    background-color: #7e7e7e; /* Cor de fundo quando selecionado */
+    color: white;
+}
+
+.candidatar-soldadura .dia.selecionado .circle {
+    background-color: #fff; /* Cor do círculo quando selecionado */
+}
+
+/* Estilo para o botão de envio do formulário */
+.candidatar-soldadura button {
+    background-color: #6e6e6e;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s; /* Adiciona transição suave */
+}
+
+/* Hover para o botão de envio */
+.candidatar-soldadura button:hover {
+    background-color: #000000;
+}
+
+
+/* Imagem do fundo para melhorar o visual */
+.candidatar-soldadura .imagem-fundo {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a faixa inferior com os ícones de Instagram, WhatsApp e Google Maps */
+/* Faixa inferior com os ícones */
+/* Faixa inferior com os ícones */
+/* A faixa de ícones que deve ficar fixada ao final da página */
+.card {
+    position: relative;  /* Mudamos para 'relative' para posicionar normalmente no fluxo do layout */
+    margin-top: 20px;     /* Espaço para separar a faixa de ícones de outros conteúdos */
+    padding: 20px 0;
+    background-color: #f0f0f0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;          /* Garantir que ocupe toda a largura da página */
+    box-sizing: border-box;
+    z-index: 1;
+    bottom: 0;
+}
+
+/* Ícones individuais */
+.card .socialContainer {
+    background: linear-gradient(to right, #E4405F, #FCAF45); /* Exemplo de gradiente */
+    border-radius: 50%;
+    padding: 15px;
+    display: inline-block;
+}
+
+.card .socialContainer i {
+    font-size: 24px;
+    color: white;
+}
+
+/* Efeito de hover nos ícones */
+.socialContainer:hover i {
+    transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
+    transition: transform 0.2s;
+}
+
+/* Garantir que o conteúdo principal da página ocupa toda a altura da página */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Define a altura mínima da página como a altura total da tela */
+    margin: 0; /* Remove qualquer margem extra */
+}
+
+main {
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+}
+
+/* Essa classe vai garantir que a imagem 1 se comporte corretamente dentro do layout */
+/* Imagem */
+/* A imagem, que ficará acima da faixa de ícones */
+#imagem1 {
+    max-width: 100%;
+    max-height: 400px;
+    margin: 20px auto; /* Garante que a imagem fique centralizada horizontalmente */
+    position: absolute; /* Para posicionar a imagem em relação à tela */
+    top: 50%; /* Posiciona a imagem no meio da tela verticalmente */
+    left: 70%; /* Altera de 50% para 60% para mover a imagem mais para a direita */
+    transform: translate(-50%, -50%); /* Ajusta a posição para que o centro da imagem fique no meio da tela */
+    z-index: 1;
+}
+
+/* Centralizar os botões de navegação */
+.nav-buttons {
+    display: flex;
+    justify-content: center;  /* Centraliza os botões horizontalmente */
+    gap: 20px;  /* Espaçamento entre os botões */
+    margin-top: 20px;  /* Ajuste o espaço acima, se necessário */
+}
+
+.nav-buttons button {
+    background-color: #747474; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    padding: 12px 24px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostrar cursor de clique */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+}
+
+/* Efeito ao passar o mouse sobre os botões */
+.nav-buttons button:hover {
+    background-color: #4e4e4e; /* Cor de fundo mais escura ao passar o mouse */
+    transform: translateY(-4px); /* Efeito de levantar o botão */
+}
+
+/* Efeito ao clicar nos botões */
+.nav-buttons button:active {
+    transform: translateY(2px); /* Efeito de pressionar o botão */
+}
+
+/* Para telas pequenas (por exemplo, smartphones) */
+@media (max-width: 768px) {
+    .nav-buttons {
+        flex-direction: column; /* Alinha os botões verticalmente em telas menores */
+    }
+
+    .nav-buttons button {
+        width: 100%; /* Faz os botões ocuparem toda a largura */
+        font-size: 18px; /* Aumenta o tamanho da fonte para melhorar a legibilidade */
+    }
+}
+
+/* Seção de boas-vindas */
+.centralizado {
+    position: relative;  /* Necessário para mover o texto */
+    padding: 20px;
+}
+
+/* Ajustando a posição do texto */
+.centralizado h1, .centralizado p {
+    margin-top: 100px;  /* Ajuste a distância para 100px ou valor que preferir */
+    margin-left: 300px; /* Move o texto para a direita */
+}
+
+.centralizado h1 {
+    font-size: 50px;
+    color: #333;
+}
+.centralizado p {
+    font-size: 1vw; /* Ajusta a fonte proporcional à largura da tela */
+    margin-top: 50px;  /* Ajuste a distância para 100px ou valor que preferir */
+}
+/* Seção FAQ - Centralizada no meio da tela */
+.faq-section {
+    position: fixed; /* Fica fixo na tela */
+    top: 50%; /* Centraliza na altura da tela */
+    left: 50%; /* Centraliza na largura da tela */
+    transform: translate(-50%, -50%); /* Move a seção para o centro exato */
+    width: 90%; /* Largura de 90% da tela para as perguntas ocuparem mais espaço */
+    max-width: 800px; /* Limita o tamanho máximo para não ficar muito grande */
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Fica sobre outros elementos */
+    text-align: center; /* Centraliza o conteúdo dentro da FAQ */
+    display: none; /* Inicialmente oculto */
+}
+
+/* Botão FAQ (fixado na tela) */
+.faq-button {
+    position: fixed; /* Fixado na tela */
+    top: 20px; /* Distância do topo */
+   right: 200px; /* Fica alinhado à direita */
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Garante que o botão fique sobre os outros elementos */
+}
+
+/* Centralizando os botões das perguntas dentro da seção FAQ */
+.faq-item {
+    text-align: center; /* Centraliza o conteúdo dentro da FAQ */
+    margin-bottom: 10px;
+}
+
+/* Botões das perguntas */
+.faq-question {
+    width: 100%; /* Largura total da tela */
+    background: #ddd;
+    border: none;
+    padding: 15px;
+    text-align: left; /* Alinha o texto à esquerda para dar mais espaço */
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 10px 0; /* Espaço entre as perguntas */
+    border-radius: 5px;
+    font-size: 16px; /* Aumenta o tamanho da fonte para dar mais destaque */
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+.faq-question:hover {
+    background-color: #007bff; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Altera a cor do texto ao passar o mouse */
+}
+
+/* FAQ - Respostas ocultas por padrão */
+.faq-answer {
+    display: none; /* Inicialmente oculto */
+    padding: 10px;
+    background-color: #f1f1f1;
+    margin-top: 5px;
+    border-left: 4px solid #007bff;
+    border-radius: 5px;
+    text-align: center; /* Centraliza o conteúdo das respostas */
+}
+
+/* FAQ - Quando a resposta estiver visível */
+.faq-answer.show {
+    display: block; /* Resposta fica visível quando a classe 'show' for adicionada */
+}
+
+/* Para o ícone de seta */
+.faq-question i {
+    float: right; /* Coloca o ícone da seta à direita */
+    transition: transform 0.3s ease; /* Transição suave para animação da seta */
+}
+
+/* Animação da seta ao alternar */
+.faq-answer.show + .faq-question i {
+    transform: rotate(180deg); /* Gira a seta quando a resposta é mostrada */
+}
+
+/* Estilos para o formulário de reportar problema */
+/* Ajustando a posição do campo nome e descrição */
+.faq-report-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre os campos */
+    margin-top: 20px; /* Adicionando espaço de 20px */
+}
+
+.faq-report-section input[type="text"],
+.faq-report-section textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+/* Adicionando um espaçamento entre a tabela e o topo */
+.faq-report-section {
+    margin-top: 20px;
+}
+
+.faq-report-section textarea {
+    height: 100px; /* Definindo uma altura para o textarea */
+}
+
+/* Ajustando o botão de envio */
+.faq-report-section button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.faq-report-section button:hover {
+    background-color: #0056b3;
+}
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* Aumenta o espaçamento entre os vídeos */
+    max-width: 900px; /* Define uma largura máxima para o container */
+    margin: auto;
+}
+
+.video-item {
+    width: 45%; /* Mantém dois vídeos por linha */
+    max-width: 350px; /* Define um tamanho máximo */
+    text-align: center;
+}
+
+.video-item video {
+    width: 100%; /* Faz o vídeo ocupar toda a largura do container */
+    height: auto;
+    border-radius: 10px; /* Bordas arredondadas para um design mais moderno */
+}
+
+.video-description {
+    margin-top: 10px; /* Adiciona um pequeno espaço entre o vídeo e a descrição */
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+.agendar-reuniao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.agendar-reuniao h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.agendar-reuniao form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.agendar-reuniao label {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+.agendar-reuniao input,
+.agendar-reuniao select,
+.agendar-reuniao textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.agendar-reuniao input:focus,
+.agendar-reuniao select:focus,
+.agendar-reuniao textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.agendar-reuniao button {
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.agendar-reuniao button:hover {
+    background-color: #0056b3;
+}
+.hidden {
+    display: none;
+}
+
+.form-container {
+    margin-bottom: 15px;
+}
+.modal {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.login-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+

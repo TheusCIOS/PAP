@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração</title>
+    <link rel="stylesheet" href="admin.css"> <!-- Incluindo o CSS para o painel de administração -->
+</head>
+<body>
+
+    <header>
+        <h1>Painel de Administração</h1>
+    </header>
+
+    <nav>
+        <a href="/artmetal/php/logout.php">Sair</a>
+    </nav>
+
+    <div class="container">
+        <h2>Bem-vindo, <?php echo $_SESSION['nome']; ?>!</h2>
+        <p>Você está logado como administrador. Abaixo estão as opções para gerenciar os usuários, agendamentos e candidaturas.</p>
+
+        <!-- Incluindo as partes dinâmicas do PHP -->
+        <?php include('adm.php'); ?>
+
+        <!-- Ações Administrativas -->
+        <div class="admin-actions">
+            <h3>Outras Ações</h3>
+            <p>O administrador pode adicionar, editar e excluir usuários, agendamentos e candidaturas, ou realizar outras operações conforme necessário.</p>
+            <button class="button" onclick="alert('Função de adicionar usuário ainda não implementada!')">Adicionar Novo Usuário</button>
+        </div>
+    </div>
+
+</body>
+</html>
